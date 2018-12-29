@@ -2,7 +2,7 @@
 import XCTest
 @testable import DataStructures
 
-class LinkedListTests: XCTestCase {
+class SimplyLinkedListTests: XCTestCase {
 
     override func setUp() {
     }
@@ -10,15 +10,15 @@ class LinkedListTests: XCTestCase {
     override func tearDown() {
     }
     
-    func testLinkedListShouldInsertValuesOnInit() {
-        let testObject = LinkedList<Int>(values: 10, 20, 30, 40, 50)
+    func testSimplyLinkedListShouldInsertValuesOnInit() {
+        let testObject = SimplyLinkedList<Int>(values: 10, 20, 30, 40, 50)
         
         XCTAssertEqual(testObject.count, 5)
     }
 
-    func testAppendValueShouldInsertNodeAtTheBeginningWhenLinkedListIsEmpty() {
+    func testAppendValueShouldInsertNodeAtTheBeginningWhenSimplyLinkedListIsEmpty() {
         let value = 10
-        var testObject = LinkedList<Int>()
+        var testObject = SimplyLinkedList<Int>()
         
         testObject.append(value: value)
         
@@ -26,9 +26,9 @@ class LinkedListTests: XCTestCase {
         XCTAssertEqual(testObject.count, 1)
     }
     
-    func testAppendValueShouldInsertNodeAtTheEndWhenLinkedListIsNotEmpty() {
+    func testAppendValueShouldInsertNodeAtTheEndWhenSimplyLinkedListIsNotEmpty() {
         let value = 30
-        var testObject = LinkedList<Int>()
+        var testObject = SimplyLinkedList<Int>()
         
         testObject.append(value: 10)
         testObject.append(value: 20)
@@ -38,8 +38,8 @@ class LinkedListTests: XCTestCase {
         XCTAssertEqual(testObject.count, 3)
     }
     
-    func testClearShouldRemoveAllNodesFromLinkedList() {
-        var testObject = LinkedList<Int>(values: 10, 20, 30)
+    func testClearShouldRemoveAllNodesFromSimplyLinkedList() {
+        var testObject = SimplyLinkedList<Int>(values: 10, 20, 30)
         
         testObject.clear()
         
@@ -48,79 +48,79 @@ class LinkedListTests: XCTestCase {
         XCTAssertEqual(testObject.count, 0)
     }
     
-    func testContainsShouldReturnTrueWhenValueIsInTheLinkedList() {
+    func testContainsShouldReturnTrueWhenValueIsInTheSimplyLinkedList() {
         let value = 20
-        let testObject = LinkedList<Int>(values: 10, value, 30)
+        let testObject = SimplyLinkedList<Int>(values: 10, value, 30)
         
         let actual = testObject.contains(value: value)
         
         XCTAssertTrue(actual)
     }
     
-    func testContainsShouldReturnFalseWhenValueIsNotInTheLinkedList() {
+    func testContainsShouldReturnFalseWhenValueIsNotInTheSimplyLinkedList() {
         let value = 40
-        let testObject = LinkedList<Int>(values: 10, 20, 30)
+        let testObject = SimplyLinkedList<Int>(values: 10, 20, 30)
         
         let actual = testObject.contains(value: value)
         
         XCTAssertFalse(actual)
     }
     
-    func testFindValueShouldReturnNilWhenLinkedListIsEmpty() {
-        let testObject = LinkedList<Int>()
+    func testFindValueShouldReturnNilWhenSimplyLinkedListIsEmpty() {
+        let testObject = SimplyLinkedList<Int>()
         
         let actual = testObject.find(value: 10)
         
         XCTAssertNil(actual)
     }
     
-    func testFindValueShouldReturnNodeWhenLinkedListIsNotEmpty() {
+    func testFindValueShouldReturnNodeWhenSimplyLinkedListIsNotEmpty() {
         let value = 10
-        let testObject = LinkedList<Int>(values: value)
+        let testObject = SimplyLinkedList<Int>(values: value)
         
         let actual = testObject.find(value: value)
         
         XCTAssertEqual(actual?.value, value)
     }
     
-    func testFindValueShouldReturnNodeWhenValueIsAtTheBeginningOfLinkedList() {
+    func testFindValueShouldReturnNodeWhenValueIsAtTheBeginningOfSimplyLinkedList() {
         let value = 10
-        let testObject = LinkedList<Int>(values: value, 20, 30)
+        let testObject = SimplyLinkedList<Int>(values: value, 20, 30)
         
         let actual = testObject.find(value: value)
         
         XCTAssertEqual(actual?.value, value)
     }
     
-    func testFindValueShouldReturnNodeWhenValueIsInTheMiddleOfLinkedList() {
+    func testFindValueShouldReturnNodeWhenValueIsInTheMiddleOfSimplyLinkedList() {
         let value = 20
-        let testObject = LinkedList<Int>(values: 10, value, 30)
+        let testObject = SimplyLinkedList<Int>(values: 10, value, 30)
         
         let actual = testObject.find(value: value)
         
         XCTAssertEqual(actual?.value, value)
     }
     
-    func testFindValueShouldReturnNodeWhenValueIsAtTheEndOfLinkedList() {
+    func testFindValueShouldReturnNodeWhenValueIsAtTheEndOfSimplyLinkedList() {
         let value = 30
-        let testObject = LinkedList<Int>(values: 10, 20, value)
+        let testObject = SimplyLinkedList<Int>(values: 10, 20, value)
         
         let actual = testObject.find(value: value)
         
         XCTAssertEqual(actual?.value, value)
     }
     
-    func testFindLastValueShouldReturnNilWhenLinkedListIsEmpty() {
-        let testObject = LinkedList<Int>()
+    func testFindLastValueShouldReturnNilWhenSimplyLinkedListIsEmpty() {
+        let testObject = SimplyLinkedList<Int>()
         
         let actual = testObject.findLast(value: 10)
         
         XCTAssertNil(actual)
     }
     
-    func testFindLastValueShouldReturnNodeOfLastOccurrenceWhenLinkedListIsNotEmpty() {
+    func testFindLastValueShouldReturnNodeOfLastOccurrenceWhenSimplyLinkedListIsNotEmpty() {
         let value = 20
-        let testObject = LinkedList<Int>(values: 10, value, value)
+        let testObject = SimplyLinkedList<Int>(values: 10, value, value)
         
         let actual = testObject.findLast(value: value)
         
@@ -130,7 +130,7 @@ class LinkedListTests: XCTestCase {
     
     func testIndexOfValueShouldReturnZeroBasedIndexOfTheFirstOccurrenceWhenValueIsFound() {
         let value = 30
-        let testObject = LinkedList<Int>(values: 10, 20, value)
+        let testObject = SimplyLinkedList<Int>(values: 10, 20, value)
         
         let actual = testObject.index(of: value)
         
@@ -138,7 +138,7 @@ class LinkedListTests: XCTestCase {
     }
     
     func testIndexOfValueShouldReturnMinusOneWhenValueIsNotFound() {
-        let testObject = LinkedList<Int>(values: 10, 20, 30)
+        let testObject = SimplyLinkedList<Int>(values: 10, 20, 30)
         
         let actual = testObject.index(of: 40)
         
@@ -147,7 +147,7 @@ class LinkedListTests: XCTestCase {
     
     func testLastIndexOfValueShouldReturnZeroBasedIndexOfTheLastOccurrenceWhenValueIsFound() {
         let value = 20
-        let testObject = LinkedList<Int>(values: 10, value, value)
+        let testObject = SimplyLinkedList<Int>(values: 10, value, value)
         
         let actual = testObject.lastIndex(of: value)
         
@@ -155,16 +155,16 @@ class LinkedListTests: XCTestCase {
     }
     
     func testLastIndexOfValueShouldReturnMinusOneWhenValueIsNotFound() {
-        let testObject = LinkedList<Int>(values: 10, 20, 30)
+        let testObject = SimplyLinkedList<Int>(values: 10, 20, 30)
         
         let actual = testObject.lastIndex(of: 40)
         
         XCTAssertEqual(actual, -1)
     }
     
-    func testPrependValueShouldInsertNodeAtTheBeginningWhenLinkedListIsEmpty() {
+    func testPrependValueShouldInsertNodeAtTheBeginningWhenSimplyLinkedListIsEmpty() {
         let value = 10
-        var testObject = LinkedList<Int>()
+        var testObject = SimplyLinkedList<Int>()
         
         testObject.prepend(value: value)
         
@@ -172,9 +172,9 @@ class LinkedListTests: XCTestCase {
         XCTAssertEqual(testObject.count, 1)
     }
     
-    func testPrependValueShouldInsertNodeAtTheBeginningWhenLinkedListIsNotEmpty() {
+    func testPrependValueShouldInsertNodeAtTheBeginningWhenSimplyLinkedListIsNotEmpty() {
         let value = 10
-        var testObject = LinkedList<Int>(values: 20, 30)
+        var testObject = SimplyLinkedList<Int>(values: 20, 30)
 
         testObject.prepend(value: value)
 
@@ -182,9 +182,9 @@ class LinkedListTests: XCTestCase {
         XCTAssertEqual(testObject.count, 3)
     }
     
-    func testRemoveValueShouldRemoveNodeWhenLinkedListHasOneNode() {
+    func testRemoveValueShouldRemoveNodeWhenSimplyLinkedListHasOneNode() {
         let value = 10
-        var testObject = LinkedList<Int>(values: value)
+        var testObject = SimplyLinkedList<Int>(values: value)
         
         testObject.remove(value: value)
         
@@ -193,19 +193,19 @@ class LinkedListTests: XCTestCase {
         XCTAssertNil(testObject.last)
     }
     
-    func testRemoveValueShouldRemoveNodeAtTheBeginningOfLinkedList() {
+    func testRemoveValueShouldRemoveNodeAtTheBeginningOfSimplyLinkedList() {
         let value = 10
-        var testObject = LinkedList<Int>(values: value, 20, 30)
+        var testObject = SimplyLinkedList<Int>(values: value, 20, 30)
         
         testObject.remove(value: value)
         
         XCTAssertEqual(testObject.count, 2)
     }
     
-    func testRemoveValueShouldRemoveNodeInTheMiddleOfLinkedList() {
+    func testRemoveValueShouldRemoveNodeInTheMiddleOfSimplyLinkedList() {
         let value = 20
         let lastValue = 30
-        var testObject = LinkedList<Int>(values: 10, value, lastValue)
+        var testObject = SimplyLinkedList<Int>(values: 10, value, lastValue)
         
         testObject.remove(value: value)
         
@@ -213,10 +213,10 @@ class LinkedListTests: XCTestCase {
         XCTAssertEqual(testObject.last?.value, lastValue)
     }
     
-    func testRemoveValueShouldRemoveNodeAtTheEndOfLinkedList() {
+    func testRemoveValueShouldRemoveNodeAtTheEndOfSimplyLinkedList() {
         let value = 20
         let lastValue = 30
-        var testObject = LinkedList<Int>(values: 10, value, lastValue)
+        var testObject = SimplyLinkedList<Int>(values: 10, value, lastValue)
         
         testObject.remove(value: lastValue)
         

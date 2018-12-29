@@ -1,17 +1,19 @@
 
 import Foundation
 
-struct LinkedList<T: Equatable> {
-    private var head: LinkedListNode<T>?
-    private var tail: LinkedListNode<T>?
+struct SimplyLinkedList<T: Equatable> {
+    typealias Node = SimplyLinkedListNode<T>
+    
+    private var head: Node?
+    private var tail: Node?
     
     var count: Int = 0
     
-    var first: LinkedListNode<T>? {
+    var first: Node? {
         return head
     }
     
-    var last: LinkedListNode<T>? {
+    var last: Node? {
         return tail
     }
     
@@ -22,14 +24,14 @@ struct LinkedList<T: Equatable> {
     }
     
     mutating func append(value: T) {
-        let node = LinkedListNode(value)
+        let node = Node(value)
         if head == nil && tail == nil {
             head = node
             tail = node
             count += 1
         } else {
             var current = head
-            while (current?.next != nil) {
+            while current?.next != nil {
                 current = current?.next
             }
             current?.next = node
@@ -48,7 +50,7 @@ struct LinkedList<T: Equatable> {
         return find(value: value) != nil
     }
     
-    func find(value: T) -> LinkedListNode<T>? {
+    func find(value: T) -> Node? {
         var current = head
         while current != nil {
             if current?.value == value {
@@ -59,8 +61,8 @@ struct LinkedList<T: Equatable> {
         return nil
     }
     
-    func findLast(value: T) -> LinkedListNode<T>? {
-        var previous: LinkedListNode<T>? = nil
+    func findLast(value: T) -> Node? {
+        var previous: Node? = nil
         var current = head
         while current != nil {
             if current?.value == value {
@@ -99,7 +101,7 @@ struct LinkedList<T: Equatable> {
     }
     
     mutating func prepend(value: T) {
-        let node = LinkedListNode(value)
+        let node = Node(value)
         head = node
         count += 1
     }
@@ -135,22 +137,22 @@ struct LinkedList<T: Equatable> {
     }
 }
 
-extension LinkedList: Sequence {
+extension SimplyLinkedList: Sequence {
     func makeIterator() -> LinkedListIterator<T> {
         return LinkedListIterator(self)
     }
 }
 
 struct LinkedListIterator<T: Equatable>: IteratorProtocol {
-    let linkedList: LinkedList<T>
-    var current: LinkedListNode<T>?
+    let linkedList: SimplyLinkedList<T>
+    var current: SimplyLinkedListNode<T>?
     
-    init(_ linkedList: LinkedList<T>) {
+    init(_ linkedList: SimplyLinkedList<T>) {
         self.linkedList = linkedList
         self.current = linkedList.first
     }
     
-    mutating func next() -> LinkedListNode<T>? {
+    mutating func next() -> SimplyLinkedListNode<T>? {
         guard let node = current else { return nil }
         current = node.next
         return node
