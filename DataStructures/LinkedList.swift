@@ -113,6 +113,7 @@ struct LinkedList<T: Equatable> {
     
     private mutating func remove(at index: Int) {
         if index == 0 {
+            tail = head?.next == nil ? nil : tail
             head = head?.next
         } else if index == count - 1 {
             var current = head

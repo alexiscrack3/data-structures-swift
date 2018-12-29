@@ -182,6 +182,17 @@ class LinkedListTests: XCTestCase {
         XCTAssertEqual(testObject.count, 3)
     }
     
+    func testRemoveValueShouldRemoveNodeWhenLinkedListHasOneNode() {
+        let value = 10
+        var testObject = LinkedList<Int>(values: value)
+        
+        testObject.remove(value: value)
+        
+        XCTAssertEqual(testObject.count, 0)
+        XCTAssertNil(testObject.first)
+        XCTAssertNil(testObject.last)
+    }
+    
     func testRemoveValueShouldRemoveNodeAtTheBeginningOfLinkedList() {
         let value = 10
         var testObject = LinkedList<Int>(values: value, 20, 30)
