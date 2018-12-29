@@ -1,10 +1,3 @@
-//
-//  DataStructures.h
-//  DataStructures
-//
-//  Created by Alexis Ortega on 12/28/18.
-//  Copyright © 2018 Alexis Ortega. All rights reserved.
-//
 
 #import <Cocoa/Cocoa.h>
 
