@@ -134,3 +134,25 @@ struct LinkedList<T: Equatable> {
         count -= 1
     }
 }
+
+extension LinkedList: Sequence {
+    func makeIterator() -> LinkedListIterator<T> {
+        return LinkedListIterator(self)
+    }
+}
+
+struct LinkedListIterator<T: Equatable>: IteratorProtocol {
+    let linkedList: LinkedList<T>
+    var current: LinkedListNode<T>?
+    
+    init(_ linkedList: LinkedList<T>) {
+        self.linkedList = linkedList
+        self.current = linkedList.first
+    }
+    
+    mutating func next() -> LinkedListNode<T>? {
+        guard let node = current else { return nil }
+        current = node.next
+        return node
+    }
+}
