@@ -70,7 +70,7 @@ class StackTests: XCTestCase {
         XCTAssertNil(actual)
     }
     
-    func testPopValueShouldRemoveNodeAtTheTopOfStackThatHasOneNode() {
+    func testPopValueShouldRemoveNodeAtTheTopOfStack() {
         let value = 10
         var testObject = Stack<Int>(values: value)
         
