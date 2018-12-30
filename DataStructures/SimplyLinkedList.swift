@@ -6,8 +6,7 @@ struct SimplyLinkedList<T: Equatable> {
     
     private var head: Node?
     private var tail: Node?
-    
-    var count: Int = 0
+    private(set) var count: Int = 0
     
     var first: Node? {
         return head
@@ -28,16 +27,11 @@ struct SimplyLinkedList<T: Equatable> {
         if head == nil && tail == nil {
             head = node
             tail = node
-            count += 1
         } else {
-            var current = head
-            while current?.next != nil {
-                current = current?.next
-            }
-            current?.next = node
-            tail = current == tail ? node : tail
-            count += 1
+            tail?.next = node
+            tail = node
         }
+        count += 1
     }
     
     mutating func clear() {
@@ -62,20 +56,20 @@ struct SimplyLinkedList<T: Equatable> {
     }
     
     func findLast(value: T) -> Node? {
-        var previous: Node? = nil
+        var node: Node? = nil
         var current = head
         while current != nil {
             if current?.value == value {
-                previous = current
+                node = current
             }
             current = current?.next
         }
-        return previous
+        return node
     }
     
     func index(of value: T) -> Int {
-        var current = head
         var i = 0
+        var current = head
         while current != nil {
             if current?.value == value {
                 return i
@@ -87,17 +81,17 @@ struct SimplyLinkedList<T: Equatable> {
     }
     
     func lastIndex(of value: T) -> Int {
-        var previous = -1
-        var current = head
         var i = 0
+        var index = -1
+        var current = head
         while current != nil {
             if current?.value == value {
-                previous = i
+                index = i
             }
             current = current?.next
             i += 1
         }
-        return previous
+        return index
     }
     
     mutating func prepend(value: T) {
@@ -130,7 +124,6 @@ struct SimplyLinkedList<T: Equatable> {
             for _ in 1..<index {
                 current = current?.next
             }
-            
             current?.next = current?.next?.next
         }
         count -= 1
