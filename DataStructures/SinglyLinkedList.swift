@@ -1,8 +1,8 @@
 
 import Foundation
 
-struct SimplyLinkedList<T: Equatable> {
-    typealias Node = SimplyLinkedListNode<T>
+struct SinglyLinkedList<T: Equatable> {
+    typealias Node = SinglyLinkedListNode<T>
     
     private var head: Node?
     private var tail: Node?
@@ -130,22 +130,22 @@ struct SimplyLinkedList<T: Equatable> {
     }
 }
 
-extension SimplyLinkedList: Sequence {
+extension SinglyLinkedList: Sequence {
     func makeIterator() -> LinkedListIterator<T> {
         return LinkedListIterator(self)
     }
 }
 
 struct LinkedListIterator<T: Equatable>: IteratorProtocol {
-    let linkedList: SimplyLinkedList<T>
-    var current: SimplyLinkedListNode<T>?
+    let linkedList: SinglyLinkedList<T>
+    var current: SinglyLinkedListNode<T>?
     
-    init(_ linkedList: SimplyLinkedList<T>) {
+    init(_ linkedList: SinglyLinkedList<T>) {
         self.linkedList = linkedList
         self.current = linkedList.first
     }
     
-    mutating func next() -> SimplyLinkedListNode<T>? {
+    mutating func next() -> SinglyLinkedListNode<T>? {
         guard let node = current else { return nil }
         current = node.next
         return node
