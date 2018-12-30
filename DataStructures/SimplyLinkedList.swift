@@ -26,11 +26,10 @@ struct SimplyLinkedList<T: Equatable> {
         let node = Node(value)
         if head == nil && tail == nil {
             head = node
-            tail = node
         } else {
             tail?.next = node
-            tail = node
         }
+        tail = node
         count += 1
     }
     
@@ -96,6 +95,7 @@ struct SimplyLinkedList<T: Equatable> {
     
     mutating func prepend(value: T) {
         let node = Node(value)
+        node.next = head
         head = node
         count += 1
     }

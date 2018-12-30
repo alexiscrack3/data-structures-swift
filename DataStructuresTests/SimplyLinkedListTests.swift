@@ -3,12 +3,6 @@ import XCTest
 @testable import DataStructures
 
 class SimplyLinkedListTests: XCTestCase {
-
-    override func setUp() {
-    }
-
-    override func tearDown() {
-    }
     
     func testSimplyLinkedListShouldInsertValuesOnInit() {
         let testObject = SimplyLinkedList<Int>(values: 10, 20, 30, 40, 50)
@@ -16,7 +10,7 @@ class SimplyLinkedListTests: XCTestCase {
         XCTAssertEqual(testObject.count, 5)
     }
 
-    func testAppendValueShouldInsertNodeAtTheBeginningWhenSimplyLinkedListIsEmpty() {
+    func testAppendValueShouldInsertNodeAtTheBeginningOfSimplyLinkedList() {
         let value = 10
         var testObject = SimplyLinkedList<Int>()
         
@@ -26,7 +20,7 @@ class SimplyLinkedListTests: XCTestCase {
         XCTAssertEqual(testObject.count, 1)
     }
     
-    func testAppendValueShouldInsertNodeAtTheEndWhenSimplyLinkedListIsNotEmpty() {
+    func testAppendValueShouldInsertNodeAtTheEndOfSimplyLinkedList() {
         let value = 30
         var testObject = SimplyLinkedList<Int>()
         
@@ -72,15 +66,6 @@ class SimplyLinkedListTests: XCTestCase {
         let actual = testObject.find(value: 10)
         
         XCTAssertNil(actual)
-    }
-    
-    func testFindValueShouldReturnNodeWhenSimplyLinkedListIsNotEmpty() {
-        let value = 10
-        let testObject = SimplyLinkedList<Int>(values: value)
-        
-        let actual = testObject.find(value: value)
-        
-        XCTAssertEqual(actual?.value, value)
     }
     
     func testFindValueShouldReturnNodeWhenValueIsAtTheBeginningOfSimplyLinkedList() {
@@ -162,35 +147,17 @@ class SimplyLinkedListTests: XCTestCase {
         XCTAssertEqual(actual, -1)
     }
     
-    func testPrependValueShouldInsertNodeAtTheBeginningWhenSimplyLinkedListIsEmpty() {
+    func testPrependValueShouldInsertNodeAtTheBeginningOfSimplyLinkedList() {
         let value = 10
-        var testObject = SimplyLinkedList<Int>()
-        
-        testObject.prepend(value: value)
-        
-        XCTAssertEqual(testObject.first?.value, value)
-        XCTAssertEqual(testObject.count, 1)
-    }
-    
-    func testPrependValueShouldInsertNodeAtTheBeginningWhenSimplyLinkedListIsNotEmpty() {
-        let value = 10
-        var testObject = SimplyLinkedList<Int>(values: 20, 30)
+        let lastValue = 20
+        var testObject = SimplyLinkedList<Int>(values: lastValue)
 
         testObject.prepend(value: value)
 
         XCTAssertEqual(testObject.first?.value, value)
-        XCTAssertEqual(testObject.count, 3)
-    }
-    
-    func testRemoveValueShouldRemoveNodeWhenSimplyLinkedListHasOneNode() {
-        let value = 10
-        var testObject = SimplyLinkedList<Int>(values: value)
-        
-        testObject.remove(value: value)
-        
-        XCTAssertEqual(testObject.count, 0)
-        XCTAssertNil(testObject.first)
-        XCTAssertNil(testObject.last)
+        XCTAssertNotNil(testObject.first?.next)
+        XCTAssertEqual(testObject.last?.value, lastValue)
+        XCTAssertEqual(testObject.count, 2)
     }
     
     func testRemoveValueShouldRemoveNodeAtTheBeginningOfSimplyLinkedList() {
