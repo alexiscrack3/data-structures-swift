@@ -132,3 +132,25 @@ struct DoublyLinkedList<T: Equatable> {
         count -= 1
     }
 }
+
+extension DoublyLinkedList: Sequence {
+    func makeIterator() -> DoublyLinkedListIterator<T> {
+        return DoublyLinkedListIterator(self)
+    }
+}
+
+struct DoublyLinkedListIterator<T: Equatable>: IteratorProtocol {
+    let linkedList: DoublyLinkedList<T>
+    var current: DoublyLinkedListNode<T>?
+    
+    init(_ linkedList: DoublyLinkedList<T>) {
+        self.linkedList = linkedList
+        self.current = linkedList.first
+    }
+    
+    mutating func next() -> DoublyLinkedListNode<T>? {
+        guard let node = current else { return nil }
+        current = node.next
+        return node
+    }
+}

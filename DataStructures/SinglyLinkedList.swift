@@ -131,12 +131,12 @@ struct SinglyLinkedList<T: Equatable> {
 }
 
 extension SinglyLinkedList: Sequence {
-    func makeIterator() -> LinkedListIterator<T> {
-        return LinkedListIterator(self)
+    func makeIterator() -> SinglyLinkedListIterator<T> {
+        return SinglyLinkedListIterator(self)
     }
 }
 
-struct LinkedListIterator<T: Equatable>: IteratorProtocol {
+struct SinglyLinkedListIterator<T: Equatable>: IteratorProtocol {
     let linkedList: SinglyLinkedList<T>
     var current: SinglyLinkedListNode<T>?
     
