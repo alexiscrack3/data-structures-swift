@@ -10,6 +10,8 @@
 		5ED3E45521D8979500DC7B36 /* DoublyLinkedListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED3E45421D8979500DC7B36 /* DoublyLinkedListTests.swift */; };
 		5ED3E45721D897A000DC7B36 /* DoublyLinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED3E45621D8979F00DC7B36 /* DoublyLinkedList.swift */; };
 		5ED3E45921D897A600DC7B36 /* DoublyLinkedListNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED3E45821D897A600DC7B36 /* DoublyLinkedListNode.swift */; };
+		5ED3E45B21D8AA2F00DC7B36 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED3E45A21D8AA2F00DC7B36 /* Stack.swift */; };
+		5ED3E45D21D8AE9100DC7B36 /* StackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED3E45C21D8AE9100DC7B36 /* StackTests.swift */; };
 		5EDD224721D6E94B00D84F50 /* DataStructures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EDD223D21D6E94A00D84F50 /* DataStructures.framework */; };
 		5EDD224C21D6E94B00D84F50 /* SinglyLinkedListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDD224B21D6E94B00D84F50 /* SinglyLinkedListTests.swift */; };
 		5EDD224E21D6E94B00D84F50 /* DataStructures.h in Headers */ = {isa = PBXBuildFile; fileRef = 5EDD224021D6E94A00D84F50 /* DataStructures.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -32,6 +34,8 @@
 		5ED3E45421D8979500DC7B36 /* DoublyLinkedListTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoublyLinkedListTests.swift; sourceTree = "<group>"; };
 		5ED3E45621D8979F00DC7B36 /* DoublyLinkedList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoublyLinkedList.swift; sourceTree = "<group>"; };
 		5ED3E45821D897A600DC7B36 /* DoublyLinkedListNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoublyLinkedListNode.swift; sourceTree = "<group>"; };
+		5ED3E45A21D8AA2F00DC7B36 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		5ED3E45C21D8AE9100DC7B36 /* StackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackTests.swift; sourceTree = "<group>"; };
 		5EDD223D21D6E94A00D84F50 /* DataStructures.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DataStructures.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EDD224021D6E94A00D84F50 /* DataStructures.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataStructures.h; sourceTree = "<group>"; };
 		5EDD224121D6E94A00D84F50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -86,6 +90,7 @@
 				5EDF700F21D7F6A600BB2E2F /* Nodes */,
 				5EFA62CD21D6F09D00985EC2 /* SinglyLinkedList.swift */,
 				5ED3E45621D8979F00DC7B36 /* DoublyLinkedList.swift */,
+				5ED3E45A21D8AA2F00DC7B36 /* Stack.swift */,
 				5EDD224021D6E94A00D84F50 /* DataStructures.h */,
 				5EDD224121D6E94A00D84F50 /* Info.plist */,
 			);
@@ -97,6 +102,7 @@
 			children = (
 				5EDD224B21D6E94B00D84F50 /* SinglyLinkedListTests.swift */,
 				5ED3E45421D8979500DC7B36 /* DoublyLinkedListTests.swift */,
+				5ED3E45C21D8AE9100DC7B36 /* StackTests.swift */,
 				5EDD224D21D6E94B00D84F50 /* Info.plist */,
 			);
 			path = DataStructuresTests;
@@ -225,6 +231,7 @@
 				5EDF701121D7F6E300BB2E2F /* LinkedListNode.swift in Sources */,
 				5ED3E45921D897A600DC7B36 /* DoublyLinkedListNode.swift in Sources */,
 				5EFA62CC21D6ED6A00985EC2 /* SinglyLinkedListNode.swift in Sources */,
+				5ED3E45B21D8AA2F00DC7B36 /* Stack.swift in Sources */,
 				5ED3E45721D897A000DC7B36 /* DoublyLinkedList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,6 +242,7 @@
 			files = (
 				5EDD224C21D6E94B00D84F50 /* SinglyLinkedListTests.swift in Sources */,
 				5ED3E45521D8979500DC7B36 /* DoublyLinkedListTests.swift in Sources */,
+				5ED3E45D21D8AE9100DC7B36 /* StackTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
